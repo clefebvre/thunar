@@ -576,7 +576,7 @@ thunar_folder_finished (ExoJob       *job,
 
   /* add us to the file alteration monitor */
   folder->monitor = g_file_monitor_directory (thunar_file_get_file (folder->corresponding_file),
-                                              G_FILE_MONITOR_SEND_MOVED, NULL, NULL);
+                                              G_FILE_MONITOR_NONE, NULL, NULL);
   if (G_LIKELY (folder->monitor != NULL))
     g_signal_connect (folder->monitor, "changed", G_CALLBACK (thunar_folder_monitor), folder);
 

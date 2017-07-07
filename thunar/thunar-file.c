@@ -878,7 +878,7 @@ thunar_file_watch_reconnect (ThunarFile *file)
         }
 
       /* create a file or directory monitor */
-      file_watch->monitor = g_file_monitor (file->gfile, G_FILE_MONITOR_WATCH_MOUNTS | G_FILE_MONITOR_SEND_MOVED, NULL, NULL);
+      file_watch->monitor = g_file_monitor (file->gfile, G_FILE_MONITOR_WATCH_MOUNTS, NULL, NULL);
       if (G_LIKELY (file_watch->monitor != NULL))
         {
           /* watch monitor for file changes */
@@ -3883,7 +3883,7 @@ thunar_file_watch (ThunarFile *file)
       file_watch->watch_count = 1;
 
       /* create a file or directory monitor */
-      file_watch->monitor = g_file_monitor (file->gfile, G_FILE_MONITOR_WATCH_MOUNTS | G_FILE_MONITOR_SEND_MOVED, NULL, NULL);
+      file_watch->monitor = g_file_monitor (file->gfile, G_FILE_MONITOR_WATCH_MOUNTS, NULL, NULL);
       if (G_LIKELY (file_watch->monitor != NULL))
         {
           /* watch monitor for file changes */
