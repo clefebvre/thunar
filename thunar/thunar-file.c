@@ -3915,7 +3915,9 @@ thunar_file_unwatch (ThunarFile *file)
 {
   ThunarFileWatch *file_watch;
 
-  _thunar_return_if_fail (THUNAR_IS_FILE (file));
+  /* if the file has already been destroyed, break here */
+  if (!THUNAR_IS_FILE (file))
+      return FALSE;
 
   file_watch = g_object_get_qdata (G_OBJECT (file), thunar_file_watch_quark);
   if (file_watch != NULL)
